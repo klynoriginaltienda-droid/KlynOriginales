@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+
+Sitemap: https://kly-original-catalogo.vercel.app/sitemap.xml
