@@ -19,6 +19,7 @@ export default function CartDrawer({ isOpen, onClose }) {
       const codigo = item.product.codigo || 'N/A';
       const precio = item.product.precio_oferta || item.product.precio_base;
       const precioAnterior = item.product.precio_base > precio ? item.product.precio_base : null;
+      const imagen = item.product.variantes?.[0]?.imagenes?.[0]?.url || '';
       
       message += `📦 *Producto ${index + 1}*\n`;
       message += `   🏷️ Marca: ${marca}\n`;
@@ -30,8 +31,11 @@ export default function CartDrawer({ isOpen, onClose }) {
       if (precioAnterior) {
         message += `   ⬇️ Precio anterior: S/. ${precioAnterior.toFixed(2)}\n`;
       }
-      message += `   ✅ Subtotal: S/. ${(precio * item.qty).toFixed(2)}\n\n`;
-      message += `${separator}\n\n`;
+      message += `   ✅ Subtotal: S/. ${(precio * item.qty).toFixed(2)}\n`;
+      if (imagen) {
+        message += `   🖼️ URL Imagen: ${imagen}\n`;
+      }
+      message += `\n${separator}\n\n`;
     });
     
     message += `💵 *TOTAL A PAGAR: S/. ${cartTotal.toFixed(2)}*\n\n`;    
