@@ -6,38 +6,18 @@ import Navbar from '../components/Navbar';
 const policies = [
   {
     icon: '1',
-    title: 'Cambio de producto',
-    text: 'El cliente tiene la opción de cambiar su producto en un plazo máximo de 7 días, siempre y cuando presente su comprobante de compra, y el producto no muestre signos de uso o desvalorización.',
-  },
-  {
-    icon: '2',
-    title: 'Sin devolución de dinero',
-    text: 'La tienda no hace devolución de dinero para PARES YA ENTREGADOS que fueron comprados en tienda presencial o vía online, pero sí aceptamos cambios.',
-  },
-  {
-    icon: '3',
-    title: 'Pedidos enviados',
-    text: 'Si un pedido YA FUE ENVIADO y cuenta con guía y clave de recojo, y se presenta alguna demora por parte de la agencia de transporte debido a eventos naturales o situaciones propias de la ruta, la tienda no está obligada a anular la venta ni devolver el dinero.',
-  },
-  {
-    icon: '4',
-    title: 'Tiempo de entrega',
-    text: 'El tiempo de entrega estimado a Nivel Nacional es de 5 días hábiles en promedio.',
-  },
-  {
-    icon: '5',
-    title: 'Pedido excedido',
-    text: 'Si un pedido aún no ha sido entregado y ha superado los 5 días hábiles de espera, el cliente puede decidir esperar, cambiar de modelo o pedir su reembolso, el cual será procesado en un plazo de 5 días hábiles desde el día que se solicita.',
-  },
-  {
-    icon: '6',
-    title: 'Cambios a provincia',
-    text: 'En los cambios de productos para provincia, el cliente es responsable de los gastos de envío y retorno.',
-  },
-  {
-    icon: '7',
-    title: 'Ofertas y liquidaciones',
-    text: 'No hay devolución, cambio ni reembolso para pares vendidos en ofertas y liquidaciones.',
+    title: 'POLÍTICA DE KLYN ORIGINALES',
+    points: [
+      'La tienda no realiza devolución de dinero para PARES O PRODUCTOS YA ENTREGADOS que fueron comprados en tienda física y/o PEDIDO; pero sí aceptamos cambios.',
+      'El cliente tiene la opción de cambiar su producto en un plazo máximo de 7 días, siempre y cuando presente su comprobante de compra y el producto no muestre signos de uso o desvalorización. (No aplica para productos pagados en partes).',
+      'Si un PEDIDO presenta demora ajena a nuestra responsabilidad directa (retrasos en la agencia de transporte, desastres o eventos naturales, huelgas, controles de carretera o situaciones propias de la ruta), la tienda no anulará la venta para devolver el dinero.',
+      'El tiempo de entrega estimado a Nivel Nacional es de 5 días hábiles en promedio.',
+      'Si un producto a pedido presentase demora, el cliente puede decidir: esperar según la información que brinde la tienda, cambiar de modelo aplicando a un descuento especial, o el reembolso del dinero (procesado en un lapso de 5 días hábiles desde su solicitud por procedimiento del almacén principal).',
+      'Somos conscientes que todos esperamos nuestros productos con ilusión y que su tiempo es valioso. Si no se concretó la entrega de un pedido, usted tendrá un descuento especial en sus próximas 3 compras.',
+      'En los cambios de productos para provincia, el cliente es responsable de los gastos de envío y retorno. Si es error de la tienda, la tienda asume los costos de envío.',
+      'No hay devolución, cambio ni reembolso para productos vendidos en ofertas, liquidaciones o pares únicos de exhibición.',
+      'La tienda tiene 2 modos de venta: pedidos y separaciones. Los pedidos se pagan completo; la separación se separa con 150 soles y el resto se va pagando en partes (leer políticas de separación).',
+    ],
   },
 ];
 
@@ -69,9 +49,19 @@ export default function PoliciesPage() {
                 <div className="flex-shrink-0 w-10 h-10 bg-lime-400 rounded-full flex items-center justify-center font-bold text-blue-700 text-sm">
                   {policy.icon}
                 </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">{policy.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{policy.text}</p>
+                <div className="min-w-0">
+                  <h3 className="font-bold text-gray-900 mb-3">{policy.title}</h3>
+                  <ul className="space-y-2">
+                    {policy.points.map((point, i) => (
+                      <li
+                        key={i}
+                        className="text-gray-600 text-sm leading-relaxed flex gap-2"
+                      >
+                        <span className="text-lime-500 flex-shrink-0 mt-1">•</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
